@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Trust indicator */}
-        <p className="text-sm text-muted-foreground/70 pt-4">Works offline · 21+ currencies · Real-time rates</p>
+        <p className="text-sm text-muted-foreground/70 pt-4">21+ currencies · Real-time rates</p>
       </div>
     </section>;
 };
