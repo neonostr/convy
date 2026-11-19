@@ -9,7 +9,9 @@ interface LandingDonationPopupProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const LIGHTNING_ADDRESS = 'convy@coinos.io';
+import { getDonationAddress } from '@/lib/brandDomain';
+
+const LIGHTNING_ADDRESS = getDonationAddress();
 
 const LandingDonationPopup: React.FC<LandingDonationPopupProps> = ({ open, onOpenChange }) => {
   const [qrData, setQrData] = useState<string>('');

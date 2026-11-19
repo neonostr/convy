@@ -18,3 +18,10 @@ export const getBrandDomain = (): string => {
 
 /** Full https URL to the active Neo brand domain. */
 export const getBrandUrl = (): string => `https://${getBrandDomain()}`;
+
+/** Lightning Address used for donations, matching the active brand domain. */
+export const getDonationAddress = (): string => `convy@tip.${getBrandDomain()}`;
+
+/** LNURL-pay metadata endpoint for the active donation address. */
+export const getDonationLnurlEndpoint = (): string =>
+  `https://tip.${getBrandDomain()}/.well-known/lnurlp/convy`;

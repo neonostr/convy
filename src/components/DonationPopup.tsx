@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Button } from '@/components/ui/button';
 import { Coffee } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { createCoinosInvoice } from '@/services/coinosService';
+import { createDonationInvoice } from '@/services/donationService';
 import QRCode from 'qrcode';
 import AmountSelector from './donation/AmountSelector';
 import PaymentQR from './donation/PaymentQR';
@@ -96,7 +96,7 @@ const DonationPopup: React.FC = () => {
     setIsSending(true);
     
     try {
-      const { invoice: generatedInvoice, verifyUrl } = await createCoinosInvoice(amount);
+      const { invoice: generatedInvoice, verifyUrl } = await createDonationInvoice(amount);
       setInvoice(generatedInvoice);
       await generateQR(generatedInvoice);
       
