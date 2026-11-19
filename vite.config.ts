@@ -13,8 +13,15 @@ try {
   componentTagger = undefined;
 }
 
+// Unique per build: a UTC timestamp like 20261119T094800Z, shown via the settings Easter egg.
+const BUILD_ID =
+  process.env["VITE_BUILD_ID"] ?? new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  define: {
+    __BUILD_ID__: JSON.stringify(BUILD_ID),
+  },
   server: {
     host: "::",
     port: 8080,
